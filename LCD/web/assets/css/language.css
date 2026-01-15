@@ -1,0 +1,14 @@
+
+[data-bs-language=cn] cn {
+    display: inline;
+}
+[data-bs-language=cn] en {
+    display: none;
+}
+
+[data-bs-language=en] cn {
+    display: none;
+}
+[data-bs-language=en] en {
+    display: inline;
+}

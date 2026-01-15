@@ -1,0 +1,46 @@
+body, html {
+    background: #000;
+    color: #fff;
+    margin: 0;
+    font-size: 28px; 
+}
+.tab{
+    background-color: #000;
+}
+.tab.active{
+    background-color: #fb0;
+    color: #000;
+}
+td {
+    white-space: pre;    
+}
+th{
+    color:#ddd;
+    font-size: 20px; 
+    line-height: 32px;
+    background: #333;
+}
+.s1 {
+    font-size: 135px; 
+    line-height: 135px;
+}
+.s2 {
+    font-size: 62px; 
+    line-height: 64px;
+}
+.s3 {
+    font-size: 40px; 
+    line-height: 42px;
+}
+.s4 {
+    font-size: 28px; 
+    line-height: 32px;
+}
+.s5{
+    font-size: 22px; 
+    line-height: 24px;
+}
+.s6 {
+    font-size: 17px; 
+    line-height: 19px;
+}

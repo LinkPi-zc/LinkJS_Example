@@ -1,0 +1,16 @@
+{
+  "enable": true,
+  "used": "local",
+  "shared": {
+    "ip": "",
+    "type": "cifs",
+    "path": "",
+    "auth": {
+      "uname": "",
+      "passwd": ""
+    }
+  },
+  "local": {
+    "device": "/dev/sda1"
+  }
+}

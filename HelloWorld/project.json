@@ -1,0 +1,17 @@
+{
+    "projectName": "HelloWorld",
+    "version": "1.0.0",
+    "config": {
+        "root": "config"
+    },
+    "script": {
+        "root": "script",
+        "entryFile": "main.js",
+        "entryFunc": "main",
+        "coreVer": "1.1.1"
+    },
+    "web": {
+        "root": "web",
+        "entryPage": "index.html"
+    }
+}

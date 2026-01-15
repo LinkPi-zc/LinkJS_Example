@@ -1,0 +1,50 @@
+<html>
+<meta charset="UTF-8">
+<body>
+width:<input id="width" type="text" /><br/>
+height:<input id="height" type="text" /><br/>
+bitrate:<input id="bitrate" type="text" /><br/>
+推流:
+<select id="push">
+<option value="true">开</option>
+<option value="false">关</option>
+</select>
+<span id="speed"></span>kb/s
+<br/>
+<button id="save">保存</button>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.jsonrpcclient.js"></script>
+<script>
+    var config;
+    $.getJSON( "config/config.json", function ( cfg ) {
+        config=cfg;
+        $("#width").val(config.encv.width);
+        $("#height").val(config.encv.height);
+        $("#bitrate").val(config.encv.bitrate);
+        $("#push").val(config.push.enable?"true":"false");
+    });
+
+    function callScript(url,data,cb){
+        var jsonrpc = new $.JsonRpcClient({ ajaxUrl: '/RPC9' });
+        jsonrpc.call("script.callJsFunc", [{url:url,data:data}],cb,function(err){console.log(err)});
+    }
+
+    $( "#save" ).click( function ( e ) {
+        config.encv.width=$("#width").val();
+        config.encv.height=$("#height").val();
+        config.encv.bitrate=$("#bitrate").val();
+        config.push.enable=$("#push").val()=="true";
+        callScript("/main/update",config);
+    });
+
+    function getPushSpeed(){
+        callScript("/main/getPushSpeed",null,function(res){
+            $("#speed").text(res.data);
+        });
+    }
+
+    setInterval(getPushSpeed,2000);
+</script>
+</body>
+
+</html>

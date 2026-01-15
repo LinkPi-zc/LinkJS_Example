@@ -1,0 +1,37 @@
+<html>
+<meta charset="UTF-8">
+<body style="text-align:center;" >
+<div id="txt_show"  style="font-size:50px">Hello World</div>
+<br/>
+<input id="txt" type="text" /> <button id="save">保存</button>
+<br/>
+<div style="font-size:30px"><a id="link" href="">开发者后台</a></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.jsonrpcclient.js"></script>
+<script>
+    
+    var link = document.getElementById("link");
+    link.href = "http://"+location.host+":1080";
+
+    var config;
+    $.getJSON( "config/config.json", function ( cfg ) {
+        config=cfg;
+        $("#txt_show").text(config.txt);
+        $("#txt").val(config.txt);
+    });
+
+    function callScript(url,data,cb){
+        var jsonrpc = new $.JsonRpcClient({ ajaxUrl: '/RPC9' });
+        jsonrpc.call("script.callJsFunc", [{url:url,data:data}],cb,function(err){console.log(err)});
+    }
+
+    $( "#save" ).click( function ( e ) {
+        config.txt=$("#txt").val();
+        $("#txt_show").text(config.txt);
+        callScript("/main/update",config);
+    });
+</script>
+</body>
+
+</html>

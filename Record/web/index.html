@@ -1,0 +1,29 @@
+<html>
+<meta charset="UTF-8">
+<body>
+    
+<button id="start">开始录制</button> 
+<button id="stop">停止录制</button>
+<br/>
+<br/>
+<a href="usb/test.mp4">下载文件</a>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.jsonrpcclient.js"></script>
+<script>
+    $( "#start" ).click( function ( e ) {
+        var jsonrpc = new $.JsonRpcClient({ ajaxUrl: '/RPC9' });
+        jsonrpc.call("script.callJsFunc", [{url:"/main/start"}],function(){
+            alert("已开始录制");
+        });
+    });
+    $( "#stop" ).click( function ( e ) {
+        var jsonrpc = new $.JsonRpcClient({ ajaxUrl: '/RPC9' });
+        jsonrpc.call("script.callJsFunc", [{url:"/main/stop"}],function(){
+            alert("已停止，可以下载");
+        });
+    });
+</script>
+</body>
+
+</html>

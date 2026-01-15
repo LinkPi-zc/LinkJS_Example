@@ -1,0 +1,16 @@
+{
+  "projectName": "LED",
+  "version": "1.0.0",
+  "config": {
+    "root": "config"
+  },
+  "script": {
+    "root": "script",
+    "entryFile": "main.js",
+    "entryFunc": "main"
+  },
+  "web": {
+    "root": "web",
+    "entryPage": "index.html"
+  }
+}

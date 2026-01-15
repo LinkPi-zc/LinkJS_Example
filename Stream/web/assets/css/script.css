@@ -1,0 +1,137 @@
+.xterm-viewport {
+    scrollbar-width: thin !important;
+    scrollbar-color: transparent transparent !important;
+}
+
+.xterm-viewport:hover {
+    scrollbar-color: #666 transparent !important;
+}
+
+.xterm-viewport::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+
+.xterm-viewport::-webkit-scrollbar-thumb {
+    background-color: transparent !important;
+    border-radius: 3px !important;
+}
+
+.xterm-viewport:hover::-webkit-scrollbar-thumb {
+    background-color: #666 !important;
+}
+
+.mx-menu-bar.dark, .mx-context-menu.dark {
+    --mx-menu-backgroud: #3c3c3c;
+    --mx-menu-hover-backgroud: var(--bs-default-active-bg-color);
+    --mx-menu-hover-text: var(--bs-default-txt-color);
+}
+
+.sidebar-wrapper .metismenu a .parent-icon {
+    color: var(--bs-body-color-semi) !important;
+    background-color: var(--bs-default-bg-color) !important;
+    border-color:var(--bs-border-color-translucent) !important
+}
+
+.sidebar-wrapper .metismenu .mm-active>a {
+    color: var(--bs-body-color-semi) !important;
+    font-weight: 400 !important;
+}
+
+.sidebar-wrapper .metismenu li ul .mm-active a .menu-title {
+    color: var(--bs-default-acitve-color) !important;
+}
+
+.file-tree {
+    user-select: none;
+    width: 100%;
+    font-size: 15px;
+}
+
+.tree-item {
+    width: 100%;
+}
+
+.tree-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    padding: 4px 8px;
+    transition: background-color 0.2s;
+}
+
+/* 层级缩进：用 padding-left 而不是 margin-left */
+.tree-item .tree-children .tree-row {
+    padding-left: calc(var(--depth, 0) * 20px + 8px);
+}
+
+/* 文件名 */
+.file-name {
+    margin-left: 6px;
+    flex: 1;
+    word-break: break-all;
+}
+
+/* 文件夹图标和文件图标 */
+.folder-icon {
+    color: var(--bs-default-active-bg-color);
+    width: 16px;
+}
+.folder-icon.text-gray-400 {
+    opacity: 0.6;
+}
+
+.file-icon {
+    color: #9cdcfe;
+    width: 16px;
+    text-align: center;
+}
+
+/* 选中项样式：背景色铺满整行 */
+.selected-file .file-icon {
+    color: var(--dark-bs-default-txt-color);
+}
+
+.selected-file {
+    background-color: var(--bs-default-active-bg-color);
+    color: var(--dark-bs-default-txt-color);
+}
+
+/* 为动画过渡添加淡入效果 */
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(-3px);
+}
+
+/* 右键菜单样式 */
+.context-menu {
+    position: fixed;
+    background: #252526;
+    border: 1px solid #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    z-index: 999;
+    min-width: 150px;
+}
+
+.context-menu-item {
+    padding: 6px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.context-menu-item:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+

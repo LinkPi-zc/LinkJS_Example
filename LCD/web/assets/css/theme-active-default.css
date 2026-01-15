@@ -1,0 +1,19 @@
+:root {
+    --bs-active-bg-color:#ffbb00;
+    --bs-acitve-color:#eeaa00;
+    --bs-slider-color:#ffbb00;
+
+    --default-bs-slider-bg-color:#ffdd55;
+    --default-bs-form-border-color:#dee2e6;
+    --default-bs-form-color:#555555;
+    --default-bs-body-color:#555555;
+    --default-bs-default-txt-color:#ffffff;
+    --default-bs-default-focus:rgba(251, 187, 0, 0.3);
+
+    --dark-bs-slider-bg-color:#ffbb00;
+    --dark-bs-form-border-color:#434343;
+    --dark-bs-form-color:#adb5bd;
+    --dark-bs-body-color:#555555;
+    --dark-bs-default-txt-color:#333333;
+    --dark-bs-default-focus:rgba(251, 187, 0, 0.3);
+}

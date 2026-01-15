@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebRTC Demo</title>
+  <style>
+    video {
+      border:1px solid black;
+      width:640px;
+      height:360px;
+    }
+  </style>
+</head>
+<body>
+  <video id="vid" controls autoplay ></video>
+  <br/>
+  <button id="btn" onclick="play();">Play</button>
+</body>
+<script src="js/adapter-latest.js"></script>
+<script>
+  var vid = document.getElementById('vid');
+  var IP = location.host;
+  var pc2;
+	function gotoffer(offer) {
+		offer=offer.replace(/127.0.0.1/g, IP);
+		console.log(offer)
+		var servers = null;
+		pc2= new RTCPeerConnection(servers);
+		pc2.onicecandidate = function(event) {
+			if (event.candidate) {    
+				console.log('Remote ICE candidate:' + event.candidate.candidate);    
+				//conn.send(JSON.stringify(event.candidate));
+			}
+			else {
+				// All ICE candidates have been sent
+			}
+		}
+		
+		pc2.ontrack = function(e) {
+			vid.srcObject = e.streams[0];
+		}
+		pc2.createOffer().then(function(off) {
+			//console.log(off.sdp);
+			off.sdp = offer;
+			off.type = 'offer';
+			console.log("createOffer .ok");
+			pc2.setRemoteDescription( off ).then(function() {
+				console.log("setRemoteDescription .ok");
+				pc2.createAnswer().then(function( answer ) {
+					console.log(answer.sdp);
+					pc2.setLocalDescription( answer).then(function() {
+						console.log("setLocalDescription = ");
+					})
+				})
+			})
+		});
+	}
+
+  function play(){
+	
+    var xmlhttp =new XMLHttpRequest();
+    var addr = "http://" + IP + "/webrtc?app=live&stream=test";
+    xmlhttp.onreadystatechange=function()
+    {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        gotoffer(xmlhttp.response);
+      }
+    }
+
+    xmlhttp.open("GET",addr,true);
+    xmlhttp.send(); 
+  }
+</script>
+
+</html>
+
