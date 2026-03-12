@@ -16,8 +16,8 @@ function main(){
 }
 
 function snap(){
+    console.log("snap");
     enc.invoke("snapSync","/tmp/snap/test.jpg");
 }
 
-exports.main = main;
-exports.snap = snap;
+export {main,snap}

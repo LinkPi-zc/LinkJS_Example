@@ -51,4 +51,4 @@ function onEvent(type,info){
     }
 }
 
-exports.main = main;
+export { main }

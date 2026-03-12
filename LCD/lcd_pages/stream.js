@@ -1,7 +1,7 @@
-import {LCD} from "/script/core/lcd.js"
-import main from "/script/main.js"
+import LCD from "../script/core/lcd/lcd.js"
+import * as main from "../script/main.js"
 
-exports.onLoad = function(){
+function onLoad(){
     var conf=sys.loadJson("/config/config.json");
     var data={};
     data.push={type:"select",options:[
@@ -11,10 +11,11 @@ exports.onLoad = function(){
     LCD.setData(data);
 }
 
-exports.onChange =function(data){
+function onChange(data){
     var conf=sys.loadJson("/config/config.json");
     conf.push.enable=data.push.val;
     main.update(conf);
 }
 
-exports.interval = 2000;
+var interval = 2000;
+export {interval,onLoad,onChange}

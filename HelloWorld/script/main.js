@@ -1,4 +1,4 @@
-import {LCD} from "core/lcd/lcd.js"
+import LCD from "./core/lcd/lcd.js"
 var vi,overlay,vo;
 var config;
 function main() {
@@ -56,5 +56,4 @@ function onTimer(){
     LCD.setHtml(config.txt+' <img src="img/smile.png" /><br/>'+net.ip);
 }
 
-exports.main = main;
-exports.update = update;
+export { main ,update }

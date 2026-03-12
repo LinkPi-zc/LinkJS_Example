@@ -1,4 +1,4 @@
-import {initMenu} from "menu.js"
+import {initMenu} from "./menu.js"
 var vi,vo,ai,ao,encv,enca,push,preview;
 function main(){
     //获取第一个视频接口的名字
@@ -69,7 +69,4 @@ function getInputState(){
     return vi.invoke("getReport");
 }
 
-exports.main = main;
-exports.update = update;
-exports.getPushSpeed = getPushSpeed;
-exports.getInputState = getInputState;
+export { main, update, getPushSpeed, getInputState }

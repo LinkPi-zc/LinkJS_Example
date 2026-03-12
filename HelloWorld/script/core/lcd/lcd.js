@@ -260,10 +260,7 @@ function initLCD() {
     gpio.invoke("registEvent",btn.right);
     gpio.invoke("registEvent",btn.ok);
     Link.connectEvent(gpio,onGpio);
-
     return single;
 }
 
-exports.LCD = initLCD();
-
-
+export default initLCD();

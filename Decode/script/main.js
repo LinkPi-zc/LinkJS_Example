@@ -27,4 +27,4 @@ function main() {
       //如果视频出现卡顿，可以尝试在input和dec模块之间，加入Queue模块，设定合适的delay
 }
 
-exports.main = main;
+export { main }

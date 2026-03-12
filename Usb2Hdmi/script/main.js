@@ -20,4 +20,4 @@ function main() {
     uvc.linkV(decv).linkV(vo);
 }
 
-exports.main = main;
+export {main}

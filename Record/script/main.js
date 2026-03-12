@@ -34,10 +34,12 @@ function main(){
     ai.linkA(enca).linkA(mux);
 }
 
-exports.main = main;
-exports.start = function(){
+function start(){
     mux.start({path:"/root/usb/test.mp4"});
-};
-exports.stop = function(){
+}
+
+function stop(){    
     mux.stop(true);
 }
+
+export {main, start, stop}

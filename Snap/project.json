@@ -12,5 +12,9 @@
   "web": {
     "root": "web",
     "entryPage": "index.html"
+  },
+  "nginx": { 
+    "root":"config", 
+    "includeFile": "snap.cfg" 
   }
 }

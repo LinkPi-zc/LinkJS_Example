@@ -6,4 +6,4 @@ function main() {
     });
     uart.write("hello");
 }
-exports.main = main;
+export {main};

@@ -39,4 +39,4 @@ function main(){
     ai.linkA(enca).linkA(mux).linkA(rtcServer);
 }
 
-exports.main = main;
+export {main}

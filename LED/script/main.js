@@ -52,4 +52,4 @@ function test(){
     step=(step+1)%7;
 }
 
-exports.main = main;
+export {main}

@@ -1,6 +1,6 @@
-import {LCD} from "/script/core/lcd.js"
+import LCD from "../script/core/lcd/lcd.js"
 
-exports.onLoad = function(){
+function onLoad(){
     var conf=sys.loadOsJson("/link/config/netManager.json");
     var name=Object.keys(conf.interface)[0];
     if(conf.gw!="")
@@ -37,7 +37,7 @@ exports.onLoad = function(){
     LCD.setData(data);
 }
 
-exports.onChange =function(data){
+function onChange(data){
     var conf=sys.loadOsJson("/link/config/netManager.json");
     var net=conf.interface[data.name];
     net.dhcp=data.dhcp.val;
@@ -49,4 +49,5 @@ exports.onChange =function(data){
     sys.rpcCall("http://127.0.0.1/RPC2","net.update",[JSON.stringify(conf,null,2)]);
 }
 
-exports.interval = 2000;
+var interval = 2000;
+export {interval,onLoad,onChange}

@@ -1,9 +1,10 @@
 function main() {
     var udpS=sys.createUDP();
     udpS.bind(5678);
-    udpS.setCallBack(function(msg,ip,port){
+    udpS.setCallBack(function(msg,ip,port) {
         console.log("udp got msg:",msg," from ",ip,":",port);
     });
+    
     var udpC=sys.createUDP();
     udpC.bind();
     udpC.write("hello","127.0.0.1",5678);
@@ -31,4 +32,4 @@ function onNewConnection(socket)
     });
 }
 
-exports.main = main;
+export {main}

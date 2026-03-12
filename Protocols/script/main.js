@@ -58,7 +58,7 @@ function main(){
 function startRtmp(){
     var mux=Link.create("Mux");
     //推给本地nginx服务
-    mux.start({path:"rtmp://127.0.0.1/live/testtest"});
+    mux.start({path:"rtmp://127.0.0.1/live/test"});
 
     encv.linkV(mux);
     enca.linkA(mux);
@@ -128,4 +128,4 @@ function startNDI(){
     enca.linkA(ndi);
 }
 
-exports.main = main;
+export {main}

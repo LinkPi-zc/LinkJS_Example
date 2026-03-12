@@ -1,10 +1,11 @@
-import {LCD} from "/script/core/lcd.js"
-import main from "/script/main.js"
+import LCD from "../script/core/lcd/lcd.js"
+import * as main from "../script/main.js"
 
 var device=null;
 var last_total=0;
 var last_idel=0;
 var last_cpu=0;
+
 function getSysState()
 {
     if(device==null)
@@ -50,7 +51,7 @@ function getSysState()
     return rt;
 }
 
-exports.onLoad=function(){
+function onLoad(){
     var data={};
 
     var conf=sys.loadOsJson("/link/config/netManager.json");
@@ -72,5 +73,5 @@ exports.onLoad=function(){
     LCD.setData(data);
 }
 
-exports.onChange = undefined;
-exports.interval = 2000;
+var interval = 2000;
+export { onLoad,interval }

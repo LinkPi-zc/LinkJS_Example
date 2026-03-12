@@ -1,7 +1,7 @@
-import {LCD} from "/script/core/lcd.js"
-import main from "/script/main.js"
+import LCD from "../script/core/lcd/lcd.js"
+import * as main from "../script/main.js"
 
-exports.onLoad = function(){
+function onLoad(){
     var conf=sys.loadJson("/config/config.json");
     var encv=conf.encv;
     var data={};
@@ -16,7 +16,7 @@ exports.onLoad = function(){
     LCD.setData(data);
 }
 
-exports.onChange =function(data){
+function onChange(data){
     var conf=sys.loadJson("/config/config.json");
     var encv=conf.encv;
     encv.codec=data.codec.val;
@@ -32,3 +32,5 @@ exports.onChange =function(data){
 
     main.update(conf);
 }
+
+export {onLoad,onChange}

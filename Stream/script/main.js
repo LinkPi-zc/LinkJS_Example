@@ -60,7 +60,4 @@ function getPushSpeed(){
         speed = Math.floor(ret.speed * 8 / 1024);
     return speed;
 }
-
-exports.main = main;
-exports.update = update;
-exports.getPushSpeed = getPushSpeed;
+export { main ,update, getPushSpeed }

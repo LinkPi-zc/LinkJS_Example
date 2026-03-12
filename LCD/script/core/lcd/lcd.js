@@ -194,6 +194,7 @@ function initLCD() {
     
     var hw=sys.loadOsJson("/link/config/hardware.json");
     var btn=hw.button;
+    console.log(btn);
     var lastBtn="";
     var btnTimer=0;
     var lastTapTime=0;
@@ -264,6 +265,6 @@ function initLCD() {
     return single;
 }
 
-exports.LCD = initLCD();
+export default initLCD();
 
 
